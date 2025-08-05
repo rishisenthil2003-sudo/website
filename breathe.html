@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breathe With Me - HeartHeals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav> <div><strong>HeartHeals</strong></div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="pep-talk.html">Pep Talk</a>
+      <a href="playlist.html">Mood Booster</a>
+      <a href="vent.html">Let It Out</a>
+      <a href="breathe.html">Breathe With Me</a>
+      <a href="relax.html">Others</a>
+    </div></nav>
+  <style>
+   .breathe-container {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 70px;
+      font-size: 2.5em;
+      color: #333;
+    }
+
+    .circle {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      color: #333;
+      animation: breathe 8s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.5); }
+      100% { transform: scale(1); }
+    }
+
+    p {
+      margin-top: 50px;
+      font-size: 2.1em;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="breathe-container">
+    <h1>🌬️ Breathe With Me</h1>
+    <div class="circle" id="breatheText">Inhale</div>
+    <p>Follow the circle. Breathe in... and out...</p>
+  </div>
+  <script>
+    const text = document.getElementById("breatheText");
+    let isInhale = true;
+
+    setInterval(() => {
+      isInhale = !isInhale;
+      text.textContent = isInhale ? "Inhale" : "Exhale";
+    }, 4000); // Changes text every 4 seconds (half of 8s animation cycle)
+  </script>
+</body>
+</html>
