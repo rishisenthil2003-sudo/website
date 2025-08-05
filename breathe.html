@@ -63,19 +63,33 @@
   </style>
 </head>
 <body>
-  <div class="breathe-container">
+  <div id="breatheSection" class="breathe-container">
     <h1>🌬️ Breathe With Me</h1>
     <div class="circle" id="breatheText">Inhale</div>
     <p>Follow the circle. Breathe in... and out...</p>
   </div>
+
+  <div id="finalMessage" class="breathe-container" style="display: none;">
+    <h1>🧘 Avlo tha seri ayuduchu paru!!</h1>
+  </div>
+
   <script>
     const text = document.getElementById("breatheText");
+    const breatheSection = document.getElementById("breatheSection");
+    const finalMessage = document.getElementById("finalMessage");
     let isInhale = true;
 
-    setInterval(() => {
+    const breathingInterval = setInterval(() => {
       isInhale = !isInhale;
       text.textContent = isInhale ? "Inhale" : "Exhale";
-    }, 4000); // Changes text every 4 seconds (half of 8s animation cycle)
+    }, 4000);
+
+    setTimeout(() => {
+      clearInterval(breathingInterval);
+      breatheSection.style.display = "none";
+      finalMessage.style.display = "flex";
+    }, 30000); // 10 seconds
   </script>
 </body>
 </html>
+
